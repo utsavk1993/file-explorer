@@ -5,6 +5,8 @@ import { data } from './data/index.js';
  * @param {Element} parentElement - The parent element to append the tree view to
  */
 const createTreeView = (node, parentElement) => {
+  if (node.type === 'file') return; // Skip files in the sidebar
+
   const li = document.createElement('li');
   const text = document.createElement('span');
   li.style.listStyleType = 'none';
