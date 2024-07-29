@@ -39,6 +39,11 @@ ul ul {
   cursor: pointer;
 }
 
+.arrow {
+  display: inline-block;
+  width: 20px;
+}
+
 .selected {
   background-color: #e0e0e0;
 }

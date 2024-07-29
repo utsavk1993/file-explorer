@@ -3,25 +3,36 @@ import { data } from './data/index.js';
 /* Create the tree view of the file explorer in the sidebar using the data provided
  * @param {Object} node - The node object to create the tree view for
  * @param {Element} parentElement - The parent element to append the tree view to
+ * @param {Boolean} isRoot - Flag to indicate if the node is the root node
  */
-const createTreeView = (node, parentElement) => {
+const createTreeView = (node, parentElement, isRoot = false) => {
   if (node.type === 'file') return; // Skip files in the sidebar
 
   const li = document.createElement('li');
+  const arrow = document.createElement('span');
   const text = document.createElement('span');
-  li.style.listStyleType = 'none';
+
+  arrow.classList.add('arrow');
+  // Check if the folder has at least one folder inside it
+  const hasSubFolders = node.children && node.children.some(child => child.type === 'folder');
+  arrow.textContent = hasSubFolders ? (isRoot ? '▼' : '▶') : ''; // Down arrow for root
+  arrow.dataset.expanded = isRoot ? 'true' : 'false';
+
   text.textContent = node.name;
   text.dataset.type = node.type;
   text.dataset.path = getPath(node);
   text.classList.add(node.type);
 
+  li.style.listStyleType = 'none';
+  li.appendChild(arrow);
   li.appendChild(text);
   // Append the list item to the parent element
   parentElement.appendChild(li);
 
   // If the node has children, create a nested list
-  if (node.children && node.children.length > 0) {
+  if (hasSubFolders) {
     const ul = document.createElement('ul');
+    ul.style.display = isRoot ? 'block' : 'none';
     li.appendChild(ul);
     // Recursively create the tree view for the children
     node.children.forEach(child => createTreeView(child, ul));
@@ -34,8 +45,12 @@ const createTreeView = (node, parentElement) => {
       // Toggle the display of the nested ul element
       const nestedUl = target.nextElementSibling;
       if (nestedUl) {
+        const isExpanded = arrow.dataset.expanded === 'true';
         nestedUl.style.display = nestedUl.style.display === 'none' ? 'block' : 'none';
+        arrow.textContent = isExpanded ? '▶' : '▼'; // Toggle between right and down arrows
+        arrow.dataset.expanded = isExpanded ? 'false' : 'true';
       }
+      event.stopPropagation();
     }
     document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
     target.classList.add('selected');
@@ -95,7 +110,7 @@ const displayFolderContents = (node) => {
 /* Initialize the file explorer by creating the tree view in the sidebar */
 const initializeFileExplorer = () => {
   const rootElement = document.getElementById('sidebar');
-  data.forEach(node => createTreeView(node, rootElement));
+  data.forEach((node, index) => createTreeView(node, rootElement, index === 0));
   // Display the contents of the first folder by default
   displayFolderContents(data[0]);
 }
