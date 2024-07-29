@@ -1,0 +1,12 @@
+{
+  "name": "file-explorer",
+  "version": "1.0.0",
+  "description": "A UI for exploring files and directories",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["file explorer", "file system"],
+  "author": "Utsav Kumar <utsavkumar.ca@gmail.com>",
+  "license": "MIT"
+}
