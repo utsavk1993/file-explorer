@@ -1,5 +1,5 @@
 // Description: Mock data for documents
-import { TYPES } from './index';
+import { TYPES } from './constants.js';
 
 export const documents = [
   {

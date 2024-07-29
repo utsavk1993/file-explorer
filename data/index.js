@@ -1,14 +1,10 @@
 // Description: Data for the file explorer
 
-import { documents } from "./documents";
-import { images } from "./images";
+import { documents } from "./documents.js";
+import { images } from "./images.js";
+import { TYPES } from "./constants.js";
 
-export const TYPES = {
-  FOLDER: 'folder',
-  FILE: 'file'
-};
-
-const data = [
+export const data = [
   {
     type: TYPES.FOLDER,
     name: 'Files',
