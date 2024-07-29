@@ -1,4 +1,4 @@
-# File System
+# File Explorer
 
 ## Problem Statement
 1. A customer has asked for a way to provide a UI for exploring a file system with the ability to
@@ -24,4 +24,10 @@ Assumption: "name" will be unique per folder
 ## Mockup
 
 ![image](https://github.com/user-attachments/assets/a61bdf86-8426-440d-b8e4-7c927629ce2d)
+
+## How to run the project?
+1. Install Node.js on your machine by following [this](https://nodejs.org/en/download/package-manager) link.
+2. Install `http-server` globally: `npm install -g http-server`.
+3. Navigate to the project directory in the terminal and run: `http-server`
+4. Access the project using the URLs provided by the server. The default is `http://localhost:8080`
 
