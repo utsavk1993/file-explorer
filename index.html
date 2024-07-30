@@ -11,15 +11,18 @@
   <div id="main">
     <table id="fileTable">
       <thead>
-          <tr>
-              <th>Name</th>
-              <th>Date Modified</th>
-              <th>File Size</th>
-          </tr>
+        <tr>
+          <th>Name</th>
+          <th>Date Modified</th>
+          <th>File Size</th>
+        </tr>
       </thead>
       <tbody></tbody>
     </table>
   </div>
 </body>
 <script type="module" src="./fileExplorer.js"></script>
-</html>
+<script type="module">
+  import { initializeFileExplorer } from './fileExplorer.js';
+  initializeFileExplorer();
+</script>

@@ -20,12 +20,12 @@ const createTreeView = (node, parentElement, isRoot = false) => {
 
   text.textContent = node.name;
   text.dataset.type = node.type;
-  text.dataset.path = getPath(node);
   text.classList.add(node.type);
 
   li.style.listStyleType = 'none';
   li.appendChild(arrow);
   li.appendChild(text);
+
   // Append the list item to the parent element
   parentElement.appendChild(li);
 
@@ -56,17 +56,6 @@ const createTreeView = (node, parentElement, isRoot = false) => {
     target.classList.add('selected');
     displayFolderContents(node);
   });
-}
-
-// Get the path of the node by traversing up the parent nodes
-const getPath = (node) => {
-  const path = [];
-  let current = node;
-  while (current) {
-    path.unshift(current.name);
-    current = current.parent;
-  }
-  return path.join('/');
 }
 
 /* Display the contents of the folder in the main view
@@ -115,4 +104,4 @@ const initializeFileExplorer = () => {
   displayFolderContents(data[0]);
 }
 
-initializeFileExplorer();
+export { createTreeView, displayFolderContents, initializeFileExplorer }; // For testing purposes
