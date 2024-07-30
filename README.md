@@ -25,9 +25,13 @@ Assumption: "name" will be unique per folder
 
 ![image](https://github.com/user-attachments/assets/a61bdf86-8426-440d-b8e4-7c927629ce2d)
 
-## How to run the project?
+## Running the project
 1. Install Node.js on your machine by following [this](https://nodejs.org/en/download/package-manager) link.
 2. Install `http-server` globally: `npm install -g http-server`.
 3. Navigate to the project directory in the terminal and run: `http-server`
 4. Access the project using the URLs provided by the server. The default is `http://localhost:8080`
+
+## Running the tests
+1. Go to the project directory and run `npm install` to install all dev-dependencies for the test environment.
+2. Run `npm test`
 
