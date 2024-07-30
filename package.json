@@ -2,11 +2,20 @@
   "name": "file-explorer",
   "version": "1.0.0",
   "description": "A UI for exploring files and directories",
-  "main": "index.js",
+  "main": "fileExplorer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
-  "keywords": ["file explorer", "file system"],
+  "keywords": [
+    "file explorer",
+    "file system"
+  ],
   "author": "Utsav Kumar <utsavkumar.ca@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.24.9",
+    "@babel/preset-env": "^7.25.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  }
 }
