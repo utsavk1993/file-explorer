@@ -1,8 +1,8 @@
 // Description: Data for the file explorer
 
-import { documents } from "./documents.js";
-import { images } from "./images.js";
-import { TYPES } from "./constants.js";
+import { documents } from './documents.js';
+import { images } from './images.js';
+import { TYPES } from './constants.js';
 
 export const data = [
   {
@@ -43,7 +43,7 @@ export const data = [
         name: 'Description.txt',
         modified: new Date('2020-07-06'),
         size: 2048,
-      }
-    ]
-  }
+      },
+    ],
+  },
 ];

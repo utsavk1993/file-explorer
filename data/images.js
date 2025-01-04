@@ -20,7 +20,7 @@ export const images = [
         modified: new Date('2020-07-06'),
         size: 1024,
       },
-    ]
+    ],
   },
   {
     type: TYPES.FOLDER,
@@ -34,6 +34,6 @@ export const images = [
         modified: new Date('2020-07-06'),
         size: 1024,
       },
-    ]
+    ],
   },
 ];

@@ -7,7 +7,12 @@ jest.mock('./data/index.js', () => ({
       type: 'folder',
       children: [
         { name: 'file1.txt', type: 'file', modified: new Date(), size: 1024 },
-        { name: 'subfolder', type: 'folder', modified: new Date(), children: [] },
+        {
+          name: 'subfolder',
+          type: 'folder',
+          modified: new Date(),
+          children: [],
+        },
       ],
     },
   ],
@@ -34,7 +39,12 @@ describe('displayFolderContents()', () => {
       type: 'folder',
       children: [
         { name: 'file1.txt', type: 'file', modified: new Date(), size: 1024 },
-        { name: 'subfolder', type: 'folder', modified: new Date(), children: [] },
+        {
+          name: 'subfolder',
+          type: 'folder',
+          modified: new Date(),
+          children: [],
+        },
       ],
     };
 
@@ -58,7 +68,9 @@ describe('displayFolderContents()', () => {
     expect(firstCallArgs.nodeName).toBe('TR');
     expect(firstCallArgs.children[0].textContent).toContain('📄');
     expect(firstCallArgs.children[0].textContent).toContain('file1.txt');
-    expect(firstCallArgs.children[1].textContent).toBe(folderNode.children[0].modified.toLocaleDateString());
+    expect(firstCallArgs.children[1].textContent).toBe(
+      folderNode.children[0].modified.toLocaleDateString(),
+    );
     expect(firstCallArgs.children[2].textContent).toBe('1.0 KB');
 
     // Check the second row
@@ -66,7 +78,9 @@ describe('displayFolderContents()', () => {
     expect(secondCallArgs.nodeName).toBe('TR');
     expect(secondCallArgs.children[0].textContent).toContain('📁');
     expect(secondCallArgs.children[0].textContent).toContain('subfolder');
-    expect(secondCallArgs.children[1].textContent).toBe(folderNode.children[1].modified.toLocaleDateString());
+    expect(secondCallArgs.children[1].textContent).toBe(
+      folderNode.children[1].modified.toLocaleDateString(),
+    );
     expect(secondCallArgs.children[2].textContent).toBe('');
   });
 
@@ -91,8 +105,14 @@ describe('displayFolderContents()', () => {
     const firstCallArgs = tbody.appendChild.mock.calls[0][0];
     const secondCallArgs = tbody.appendChild.mock.calls[1][0];
 
-    expect(firstCallArgs.addEventListener).toHaveBeenCalledWith('click', expect.any(Function));
-    expect(secondCallArgs.addEventListener).toHaveBeenCalledWith('click', expect.any(Function));
+    expect(firstCallArgs.addEventListener).toHaveBeenCalledWith(
+      'click',
+      expect.any(Function),
+    );
+    expect(secondCallArgs.addEventListener).toHaveBeenCalledWith(
+      'click',
+      expect.any(Function),
+    );
   });
 
   it('should clear existing contents before displaying new contents', () => {

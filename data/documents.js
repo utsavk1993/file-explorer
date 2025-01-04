@@ -32,9 +32,9 @@ export const documents = [
             modified: new Date('2020-07-06'),
             size: 4523,
           },
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   },
   {
     type: TYPES.FOLDER,
@@ -53,8 +53,8 @@ export const documents = [
         name: 'Env2.docx',
         modified: new Date('2020-07-06'),
         size: 4096,
-      }
-    ]
+      },
+    ],
   },
   {
     type: TYPES.FILE,
@@ -67,5 +67,5 @@ export const documents = [
     name: 'Env4.txt',
     modified: new Date('2020-07-06'),
     size: 2356,
-  }
+  },
 ];
